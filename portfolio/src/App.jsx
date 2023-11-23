@@ -13,7 +13,12 @@ function UnityPlayer() {
     codeUrl: "/Build/build.wasm",
   });
 
-  return <Unity unityProvider={unityProvider} style={{ width: "80vw" }} />;
+  return (
+    <Unity
+      unityProvider={unityProvider}
+      style={{ width: "80vw", maxWidth: "875px" }}
+    />
+  );
 }
 
 class App extends Component {
