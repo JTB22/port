@@ -1,27 +1,51 @@
-#root {
-  max-width: 1280px;
+@import url("https://fonts.googleapis.com/css2?family=Zeyada&family=Caveat&display=swap");
+
+.app {
+  display: flex;
+  flex-direction: column;
   margin: 0 auto;
-  padding: 2rem;
   text-align: center;
+  width: 100%;
+  min-height: 100vh;
 }
 
 .header {
   display: flex;
   flex-direction: row;
+  font-size: 1.5rem;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);}
+  justify-content: space-evenly;
+  padding: 2rem;
+}
+
+.header h1 {
+  font-family: "Zeyada", cursive;
+}
+.header h1 span {
+  font-family: "Caveat", cursive;
+}
 
 .logo {
-  height: 10em;
-  padding-bottom: 1.5em;
+  height: 12rem;
   will-change: filter;
   transition: filter 300ms;
-  filter: drop-shadow(0 0 3em #646cffaa);
+  filter: drop-shadow(0 0 1em #646cffaa);
+  z-index: 0;
 }
 
 .logo:hover {
-  filter: drop-shadow(0 0 3em #a564ffaa);
+  filter: drop-shadow(0 0 3rem #a564ffaa);
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#pixi-canvas {
+  z-index: 1;
 }
 
 .card {
