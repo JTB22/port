@@ -62,3 +62,7 @@
 .read-the-docs {
   color: #888;
 }
+
+.unity {
+  pointer-events: none;
+}

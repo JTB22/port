@@ -1,8 +1,20 @@
-import { Component } from "react";
+import React, { Component } from "react";
 import viteLogo from "/logo1.png";
 import githubLogo from "/icons8-github.svg";
 import "./App.css";
 import "animate.css";
+import { Unity, useUnityContext } from "react-unity-webgl";
+
+function UnityPlayer() {
+  const { unityProvider } = useUnityContext({
+    loaderUrl: "/Build/build.loader.js",
+    dataUrl: "/Build/build.data",
+    frameworkUrl: "/Build/build.framework.js",
+    codeUrl: "/Build/build.wasm",
+  });
+
+  return <Unity unityProvider={unityProvider} style={{ width: "80vw" }} />;
+}
 
 class App extends Component {
   constructor(props) {
@@ -10,7 +22,6 @@ class App extends Component {
     this.state = {
       text: "",
       welcomeMessage: 'Console.WriteLine("Hello World");',
-      lastName: "Blood",
       typeWriter: function (text, i = 0) {
         if (i < text.length) {
           document.getElementById("Welcome").textContent += text.charAt(i);
@@ -57,6 +68,9 @@ class App extends Component {
         </div>
         <p id="Welcome"></p>
         <div className="body">
+          <div className="card unity">
+            <UnityPlayer />
+          </div>
           <div className="card">
             <a href="https://github.com/jtb22" target="_blank" rel="noreferrer">
               <img
