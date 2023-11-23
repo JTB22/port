@@ -1,53 +1,72 @@
 import { Component } from "react";
 import viteLogo from "/logo1.png";
-// import githubLogo from "/icons8-github.svg";
+import githubLogo from "/icons8-github.svg";
 import "./App.css";
+import "animate.css";
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
       text: "",
-      firstName: "Joshua",
+      welcomeMessage: 'Console.WriteLine("Hello World");',
       lastName: "Blood",
       typeWriter: function (text, i = 0) {
         if (i < text.length) {
-          const newText = document.getElementById(text).textContent.split("");
-          newText[i] = text.charAt(i);
-          document.getElementById(text).textContent = newText.join("");
+          document.getElementById("Welcome").textContent += text.charAt(i);
           setTimeout(() => {
             this.typeWriter(text, i + 1);
-          }, 1300 / text.length);
+          }, 2000 / text.length);
+        } else {
+          setTimeout(() => {
+            document.getElementById("Welcome").textContent += ".";
+          }, 200);
+          setTimeout(() => {
+            document.getElementById("Welcome").textContent += ".";
+          }, 400);
+          setTimeout(() => {
+            document.getElementById("Welcome").textContent += ".";
+          }, 600);
+          setTimeout(() => {
+            document.getElementById("Welcome").textContent += ".";
+          }, 800);
+          setTimeout(() => {
+            document.getElementById("Welcome").textContent = "Hello World";
+            console.log("Hello World");
+          }, 1000);
         }
       },
     };
   }
 
+  componentDidUpdate() {}
+
   componentDidMount() {
-    this.state.typeWriter("Joshua");
-    setTimeout(() => {
-      this.state.typeWriter("Blood");
-    }, 1300);
+    this.state.typeWriter(this.state.welcomeMessage);
   }
 
   render() {
     return (
       <div className="App">
         <div className="header">
-          <h1 id={this.state.firstName}>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          </h1>
+          <h1>Joshua</h1>
           <a href="https://joshblood.com" target="_blank" rel="noreferrer">
             <img src={viteLogo} className="logo" alt="Josh Blood" />
           </a>
-          <h1 id={this.state.lastName}>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h1>
+          <h1>Blood</h1>
         </div>
+        <p id="Welcome"></p>
         <div className="body">
-          <div className="card"></div>
+          <div className="card">
+            <a href="https://github.com/jtb22" target="_blank" rel="noreferrer">
+              <img
+                src={githubLogo}
+                className="animate__animated animate__pulse animate__infinite	infinite logo"
+                alt="GitHub"
+              />
+            </a>
+          </div>
         </div>
-        <p className="read-the-docs">
-          Click on the Vite and React logos to learn more
-        </p>
       </div>
     );
   }
