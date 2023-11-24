@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useEffect } from "react";
 import viteLogo from "/logo1.png";
 import githubLogo from "/icons8-github.svg";
 import linkedinLogo from "/icons8-linkedin.svg";
